@@ -1,0 +1,59 @@
+PEOPLE 
+
+create table Person (
+  id integer auto increment primary key,
+  Name varchar(512) not null,
+  Age integer,
+  Height_cm float,
+  City varchar(60),
+  FavoriteColor varchar(60)
+)
+
+insert into Person(
+  Name, Age, Height_cm, City, FavoriteColor  
+)
+values
+('William', 25, 185, 'Mansfield','Navy Blue'),
+('Joanne', 27, 164, 'Arlington','Green'),
+('Mussel', 1, 40, 'Mansfield','White'),
+('Jarid', 22, 180, 'California', 'Pink'),
+('Michael', 26, 182, 'Ghana', 'Orange');
+
+select * from Person
+order by height_cm desc;
+
+select * from Person
+order by height_cm;
+
+select * from Person
+order by Age desc;
+
+select * from Person 
+where Age > 20;
+
+select * from Person 
+where Age = 18;
+
+select * from Person
+where Age < 20 
+OR Age > 30;
+
+select * from Person
+where Age != 27;
+
+select * from Person
+where FavoriteColor != 'Red';
+
+select * from Person
+where FavoriteColor != 'Red'
+AND FavoriteColor != 'Blue';
+
+select * from Person 
+where FavoriteColor = 'Orange'
+Or FavoriteColor = 'Green';
+
+select * from Person 
+where FavoriteColor In ('Orange','Green','Blue');
+
+select * from Person
+where FavoriteColor In ('Yellow','Purple');
