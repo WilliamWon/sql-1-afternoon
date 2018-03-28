@@ -1,4 +1,4 @@
-PEOPLE 
+People
 
 create table Person (
   id integer auto increment primary key,
@@ -57,3 +57,100 @@ where FavoriteColor In ('Orange','Green','Blue');
 
 select * from Person
 where FavoriteColor In ('Yellow','Purple');
+
+ORDER
+
+create table Orders (
+  PersonID integer,
+  ProductName varchar(150),
+  ProductPrice float,
+  Quantity integer
+)
+
+insert into Orders(
+  PersonID, ProductName, ProductPrice, Quantity
+)
+
+values 
+(003, 'Ipad', 299.99, 23),
+(005, 'Iphone 5', 50, 12),
+(007, 'Galaxy', 899.99, 2),
+(001, 'Toothpicks', 90.99, 10000),
+(094, 'EarWax Picker', 1.99, 50);
+
+select * from Orders;
+
+select SUM(Quantity)
+from Orders;
+
+select SUM(Quantity*ProductPrice)
+from Orders;
+
+select SUM(Quantity*ProductPrice)
+from Orders
+where PersonID = 007;
+
+ARTIST
+
+insert into Artist (
+  Name
+)
+values 
+('Red Velvet'),
+('Justin Bieber'),
+('Halsey');
+
+select * from Artist
+order by Name desc
+limit 10;
+
+select * from Artist
+order by Name 
+limit 5;
+
+select * from Artist
+where Name Like 'Black%';
+
+select * from Artist 
+where Name like '%Black%';
+
+EMPLOYEE
+
+select FirstName, LastName from Employee
+where City = 'Calgary';
+
+select FirstName, LastName, Max(BirthDate) 
+from Employee;
+
+select FirstName, LastName, Min(BirthDate)
+from Employee;
+
+select * from Employee where ReportsTo = 2;
+
+select count(*)
+from Employee
+where City = 'Lethbridge'
+;
+
+INVOICE
+
+select count(*)
+from Invoice
+where BillingCountry = 'USA';
+
+select max(Total) from Invoice ;
+
+select min(Total) from Invoice;
+
+select * from Invoice 
+where Total > 5;
+
+select count(*) from Invoice
+where Total < 5;
+
+select count(*) from Invoice 
+where BillingState IN ('CA','TX','AZ');
+
+select AVG(Total) from Invoice;
+
+select Sum(Total) from Invoice;
